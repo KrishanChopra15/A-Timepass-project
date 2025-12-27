@@ -1,0 +1,57 @@
+import tkinter as tk
+class Input_checker:
+       
+    def __init__(self):   
+        root=tk.Tk()
+        root.title("Tambola")
+        root.state("zoomed")
+        root.resizable(width=False,height=False)
+        self.counter(root)
+        root.mainloop()
+
+    def counter(self,root):
+        main_frame=tk.Frame(root,bg="#cdfaf5",pady=0) #background of tk
+        main_frame.pack(fill=tk.BOTH,expand=True)
+        posbutton = tk.Button(main_frame,text="+ve counter",bg="light grey",activebackground="grey",cursor="hand1",command=lambda: self.poscounter(main_frame),font=("Arial",18,'bold')).place(relx=0.34,rely=0.67)
+        negbutton = tk.Button(main_frame,text="-ve counter",bg="light grey",activebackground="grey",cursor="hand1",command=lambda: self.negcounter(main_frame),font=("Arial",18,'bold')).place(relx=0.54,rely=0.67)
+ 
+    def poscounter(self,root):
+        main_frame=tk.Frame(root,bg="#cdfaf5",pady=0) #background of tk
+        main_frame.pack(fill=tk.BOTH,expand=True)
+        num= tk.Label(main_frame,text=0,height=3,width=5,bg="light grey",font=("Arial",60,'bold'))
+        num.place(relx=0.39,rely=0.03)
+        bt_count = tk.Button(main_frame,text="Counter",bg="light grey",activebackground="grey",cursor="hand1",command=lambda: self.poscounteradd(num),font=("Arial",18,'bold')).place(relx=0.44,rely=0.67)
+        bt_back = tk.Button(main_frame,text="Previous",bg="light grey",activebackground="grey",cursor="hand1",command=lambda: self.poscounterback(num),font=("Arial",18,'bold')).place(relx=0.14,rely=0.67)
+        bt_reset = tk.Button(main_frame,text="Reset",bg="light grey",activebackground="grey",cursor="hand1",command=lambda: self.counterreset(num),font=("Arial",18,'bold')).place(relx=0.76,rely=0.67)
+        posbutton = tk.Button(main_frame,text="+ve counter",bg="light grey",activebackground="grey",cursor="hand1",command=lambda: self.poscounter(main_frame),font=("Arial",18,'bold')).place(relx=0.24,rely=0.77)
+        negbutton = tk.Button(main_frame,text="-ve counter",bg="light grey",activebackground="grey",cursor="hand1",command=lambda: self.negcounter(main_frame),font=("Arial",18,'bold')).place(relx=0.64,rely=0.77)
+
+    def negcounter(self,root):
+        main_frame=tk.Frame(root,bg="#cdfaf5",pady=0) #background of tk
+        main_frame.pack(fill=tk.BOTH,expand=True)
+        num= tk.Label(main_frame,text=0,height=3,width=5,bg="light grey",font=("Arial",60,'bold'))
+        num.place(relx=0.39,rely=0.03)
+        bt_count = tk.Button(main_frame,text="Counter",bg="light grey",activebackground="grey",cursor="hand1",command=lambda: self.negcountersub(num),font=("Arial",18,'bold')).place(relx=0.44,rely=0.67)
+        bt_back = tk.Button(main_frame,text="Previous",bg="light grey",activebackground="grey",cursor="hand1",command=lambda: self.negcounterback(num),font=("Arial",18,'bold')).place(relx=0.14,rely=0.67)
+        bt_reset = tk.Button(main_frame,text="Reset",bg="light grey",activebackground="grey",cursor="hand1",command=lambda: self.counterreset(num),font=("Arial",18,'bold')).place(relx=0.76,rely=0.67)
+        posbutton = tk.Button(main_frame,text="+ve counter",bg="light grey",activebackground="grey",cursor="hand1",command=lambda: self.poscounter(main_frame),font=("Arial",18,'bold')).place(relx=0.24,rely=0.77)
+        negbutton = tk.Button(main_frame,text="-ve counter",bg="light grey",activebackground="grey",cursor="hand1",command=lambda: self.negcounter(main_frame),font=("Arial",18,'bold')).place(relx=0.64,rely=0.77)
+
+    def poscounteradd(self,num):
+        num['text'] += 1
+    def poscounterback(self,num):   
+        if num['text'] > 0:    
+            num['text'] -= 1
+
+    def negcountersub(self,num):
+        num['text'] -= 1
+    def negcounterback(self,num):
+        if num['text'] < 0:
+            num['text'] += 1
+
+    def counterreset(self,num):
+        num['text'] = 0
+
+if __name__ == "__main__":
+    input_checker = Input_checker()
+
