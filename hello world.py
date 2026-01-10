@@ -1,15 +1,17 @@
-rang = range(32,128)
+range = range(32,128)
 empty = []
 inp = input("Enter a word:")
-lis = list(inp)
+l = list(inp)
 def loop():
-    for i in rang:
+    for i in range:
         if len(empty) == len(inp):
             break
         else:
-            print(*empty,chr(i))
-            if chr(i) == lis[len(empty)]:
+            work = "".join(empty)
+            print(f"{work}{chr(i)}")
+            if chr(i) == l[len(empty)]:
                 empty.append(chr(i))
                 loop()
 loop()
-print("\n\n",*empty,"\n")
+final = "".join(empty)
+print(f"\n\n{final}\n")
